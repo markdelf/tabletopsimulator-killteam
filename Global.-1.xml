@@ -1,0 +1,140 @@
+<!-- Xml UI. See documentation: https://api.tabletopsimulator.com/ui/introUI/ -->
+<TableLayout autoCalculateHeight="true" columnWidths="300 0 300" cellBackgroundColor="clear" cellPadding="5 5 5 5">
+    <Row preferredHeight="60">
+        <Cell></Cell><Cell></Cell><Cell></Cell>
+    </Row>
+    <Row>
+        <Cell columnSpan="2"></Cell>
+        <Cell>
+                <Panel id="toHitPanel" active="false">
+                    <TableLayout cellBackgroundColor="clear" cellPadding="10 10 10 10">
+                        <Row>
+                            <Cell>
+                               
+                            </Cell>
+                        </Row>
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                 <Text color="#FFFFFFFF" fontSize="24">Roll To Hit</Text>
+                            </Cell>
+                        </Row>
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                    <Text fontSize="14" color="white" preferredWidth="100" id="numOfAttacks"></Text>
+                                    <HorizontalLayout>
+                                        <Button onClick="subAttacks();">-</Button>
+                                        <Button onClick="addAttacks();">+</Button>
+                                    </HorizontalLayout>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row>
+                        
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                    <Text fontSize="14" color="white" preferredWidth="100" id="toHitSkill"></Text>
+                                    <HorizontalLayout>
+                                        <Button onClick="subToHitSkill();">-</Button>
+                                        <Button onClick="addToHitSkill();">+</Button>
+                                    </HorizontalLayout>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row>
+                        
+                        <Row preferredHeight="60" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                <ToggleButton onValueChanged="onToggleObstructed" id="isObstructed">Obstructed target</ToggleButton>
+                                <ToggleButton onValueChanged="onToggleLongRange" id="isLongRange">Long Range</ToggleButton>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row>
+                        
+                        <Row preferredHeight="60" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <ToggleGroup>
+                                    <HorizontalLayout>
+                                            <ToggleButton isOn="true" id="isInjury0" onValueChanged="onToggleInjury">No injury</ToggleButton>
+                                            <ToggleButton id="isInjury1" onValueChanged="onToggleInjury">1st Injury</ToggleButton>
+                                            <ToggleButton id="isInjury2" onValueChanged="onToggleInjury">2nd Injury</ToggleButton>
+                                    </HorizontalLayout>
+                                </ToggleGroup>
+                            </Cell>
+                        </Row>
+
+                        <Row preferredHeight="60" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <Button onClick="onHitRoll()" color="#CC5555FF">Do hit roll</Button>
+                            </Cell>
+                        </Row>
+                    </TableLayout>
+                </Panel>
+
+                <Panel id="toWoundPanel" active="false">
+                    <TableLayout cellBackgroundColor="clear" cellPadding="10 10 10 10">
+                        <Row>
+                            <Cell></Cell>
+                        </Row>
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                 <Text color="#FFFFFFFF" fontSize="24">Roll To Wound</Text>
+                            </Cell>
+                        </Row>
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                    <Text fontSize="14" color="white" preferredWidth="100" id="hitMemory"></Text>
+                                    <HorizontalLayout>
+                                        <Button onClick="subHitMemory();">-</Button>
+                                        <Button onClick="addHitMemory();">+</Button>
+                                    </HorizontalLayout>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row> 
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                    <Text fontSize="14" color="white" preferredWidth="100" id="attackStrength"></Text>
+                                    <HorizontalLayout>
+                                        <Button onClick="subAttackStrength();">-</Button>
+                                        <Button onClick="addAttackStrength();">+</Button>
+                                    </HorizontalLayout>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row> 
+                        <Row preferredHeight="50" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <HorizontalLayout>
+                                    <Text fontSize="14" color="white" preferredWidth="100" id="targetToughness"></Text>
+                                    <HorizontalLayout>
+                                        <Button onClick="subTargetToughness();">-</Button>
+                                        <Button onClick="addTargetToughness();">+</Button>
+                                    </HorizontalLayout>
+                                </HorizontalLayout>
+                            </Cell>
+                        </Row>
+
+                        <Row preferredHeight="60" dontUseTableRowBackground="true" color="#00000055">
+                            <Cell>
+                                <Button onClick="onWoundRoll()" color="#CC5555FF">Do wound roll</Button>
+                            </Cell>
+                        </Row>
+                    </TableLayout>
+                </Panel>
+        </Cell>
+    </Row>
+    <Row preferredHeight="50" dontUseTableRowBackground="true">
+        <Cell></Cell>
+        <Cell>
+
+        </Cell>
+        <Cell>
+         <HorizontalLayout childAlignment="LowerRight" spacing="10" width="400" height="60">
+                <Button onClick="showHitPanel()" id="start">Resolve Attacks</Button>
+                <Button onClick="back()" id="backButton" active="false">Back</Button>
+                <Button onClick="hideAnyPanels()" id="cancel" active="false">Cancel</Button>
+            </HorizontalLayout>
+        </Cell>
+    </Row>
+</TableLayout>
